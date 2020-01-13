@@ -2,6 +2,10 @@
 
 The backend for the application providing an overview of Beach Breaks in Portugal and the weather forecast for them.
 
+## To run the application
+
+Cd into the top folder of the app and run `mvn spring-boot:run`.
+
 ## Endpoints
 
 HTTP requests should be sent to localhost:8080.
