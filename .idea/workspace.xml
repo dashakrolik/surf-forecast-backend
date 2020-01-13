@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bc7c7f4f-47b6-486b-b079-b2315a4f6b3c" name="Default Changelist" comment="" />
+    <list default="true" id="bc7c7f4f-47b6-486b-b079-b2315a4f6b3c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C:/temp/test.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/C:/temp/test.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-edit-employee.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/list-employees.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1WLHcJxIVHBGIcJeIZcrYmLOzpT" />
   <component name="ProjectViewState">
@@ -15,6 +27,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -40,5 +53,11 @@
       <updated>1578922033386</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-916" y="361" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578924105245">
+      <screen x="-1920" y="23" width="1920" height="1057" />
+    </state>
+    <state x="-916" y="361" key="#com.intellij.fileTypes.FileTypeChooser/-1920.23.1920.1057/0.23.1680.943@-1920.23.1920.1057" timestamp="1578924105245" />
   </component>
 </project>
