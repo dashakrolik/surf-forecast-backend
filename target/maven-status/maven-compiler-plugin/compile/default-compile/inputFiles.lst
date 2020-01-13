@@ -1,0 +1,6 @@
+/Users/dep23810/Ordina/spring-boot-hibernate-crud-demo/src/main/java/com/howtodoinjava/demo/repository/BeachRepository.java
+/Users/dep23810/Ordina/spring-boot-hibernate-crud-demo/src/main/java/com/howtodoinjava/demo/model/BeachEntity.java
+/Users/dep23810/Ordina/spring-boot-hibernate-crud-demo/src/main/java/com/howtodoinjava/demo/DemoApplication.java
+/Users/dep23810/Ordina/spring-boot-hibernate-crud-demo/src/main/java/com/howtodoinjava/demo/service/BeachService.java
+/Users/dep23810/Ordina/spring-boot-hibernate-crud-demo/src/main/java/com/howtodoinjava/demo/exception/RecordNotFoundException.java
+/Users/dep23810/Ordina/spring-boot-hibernate-crud-demo/src/main/java/com/howtodoinjava/demo/web/BeachController.java
