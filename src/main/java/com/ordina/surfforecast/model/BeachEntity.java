@@ -18,8 +18,11 @@ public class BeachEntity {
     @Column(name="name")
     private String name;
     
-    @Column(name="location")
-    private String location;
+    @Column(name="latitude")
+    private String latitude;
+
+	@Column(name="longitude")
+	private String longitude;
     
     public Long getId() {
 		return id;
@@ -37,18 +40,25 @@ public class BeachEntity {
 		this.name = name;
 	}
 
-	public String getLocation() {
-		return location;
+	public String getLatitude() {
+		return latitude;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public String getLongitude() {
+		return longitude;
 	}
 
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
 
     @Override
     public String toString() {
         return "BeachEntity [id=" + id + ", name=" + name +
-                ", location=" + location + "]";
+                ", location=" + latitude + "," + longitude + "]";
     }
 }

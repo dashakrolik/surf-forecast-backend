@@ -47,7 +47,8 @@ public class BeachService {
         {
             BeachEntity newEntity = beach.get();
             newEntity.setName(entity.getName());
-            newEntity.setLocation(entity.getLocation());
+            newEntity.setLatitude(entity.getLatitude());
+            newEntity.setLongitude(entity.getLongitude());
 
             newEntity = repository.save(newEntity);
 

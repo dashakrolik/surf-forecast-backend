@@ -1,6 +1,5 @@
 com/ordina/surfforecast/repository/BeachRepository.class
 com/ordina/surfforecast/web/BeachController.class
-com/ordina/surfforecast/model/BeachEntityDto.class
 com/ordina/surfforecast/service/BeachService.class
 com/ordina/surfforecast/model/BeachEntity.class
 com/ordina/surfforecast/DemoApplication.class
