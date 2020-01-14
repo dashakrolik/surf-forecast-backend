@@ -1,7 +1,7 @@
 INSERT INTO 
 	TBL_BEACHES (name, location)
 VALUES
-  	('Ericeira Beach', 'Portugal'),
-  	('Nazareth', 'Portugal'),
-  	('Nazareth', 'Portugal'),
-  	('Nazareth', 'Portugal');
+  	('Cantinho da Baia', 'Peniche'),
+  	('Praia da Torreira', 'Porto'),
+  	('Foz do Lizandro', 'Ericeira'),
+  	('Guincho', 'Cascais');
