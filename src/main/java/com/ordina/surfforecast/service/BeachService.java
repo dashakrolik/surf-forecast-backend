@@ -24,7 +24,7 @@ public class BeachService {
         if(beachesList.size() > 0) {
             return beachesList;
         } else {
-            return new ArrayList<BeachEntity>();
+            return new ArrayList<>();
         }
     }
      
@@ -42,19 +42,20 @@ public class BeachService {
     public BeachEntity createOrUpdateBeach(BeachEntity entity) throws RecordNotFoundException
     {
         Optional<BeachEntity> beach = repository.findById(entity.getId());
-         
+
         if(beach.isPresent())
         {
             BeachEntity newEntity = beach.get();
             newEntity.setName(entity.getName());
-            newEntity.setLocation(entity.getLocation());
- 
+            newEntity.setLatitude(entity.getLatitude());
+            newEntity.setLongitude(entity.getLongitude());
+
             newEntity = repository.save(newEntity);
-             
+
             return newEntity;
         } else {
             entity = repository.save(entity);
-             
+
             return entity;
         }
     }

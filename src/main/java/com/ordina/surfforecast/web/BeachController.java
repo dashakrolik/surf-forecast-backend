@@ -8,29 +8,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.ordina.surfforecast.model.BeachEntity;
 
+
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/beaches")
 public class BeachController
 {
     @Autowired
     BeachService service;
- 
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public ResponseEntity<List<BeachEntity>> getAllBeaches() {
         List<BeachEntity> list = service.getAllBeaches();
  
         return new ResponseEntity<List<BeachEntity>>(list, new HttpHeaders(), HttpStatus.OK);
     }
- 
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/{id}")
     public ResponseEntity<BeachEntity> getBeachById(@PathVariable("id") Long id)
                                                     throws RecordNotFoundException {
@@ -38,14 +37,17 @@ public class BeachController
  
         return new ResponseEntity<BeachEntity>(entity, new HttpHeaders(), HttpStatus.OK);
     }
- 
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
-    public ResponseEntity<BeachEntity> createOrUpdateBeach(BeachEntity beach)
+    public ResponseEntity<BeachEntity> createOrUpdateBeach(@RequestBody BeachEntity beach)
                                                     throws RecordNotFoundException {
+        System.out.println(beach);
         BeachEntity updated = service.createOrUpdateBeach(beach);
         return new ResponseEntity<BeachEntity>(updated, new HttpHeaders(), HttpStatus.OK);
     }
- 
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/{id}")
     public HttpStatus deleteBeachById(@PathVariable("id") Long id)
                                                     throws RecordNotFoundException {
