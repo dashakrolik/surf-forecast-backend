@@ -1,5 +1,6 @@
 package com.ordina.surfforecast.web;
 
+import java.net.URISyntaxException;
 import java.util.List;
 
 import com.ordina.surfforecast.exception.RecordNotFoundException;
@@ -23,7 +24,7 @@ public class BeachController
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
-    public ResponseEntity<List<BeachEntity>> getAllBeaches() {
+    public ResponseEntity<List<BeachEntity>> getAllBeaches() throws URISyntaxException {
         List<BeachEntity> list = service.getAllBeaches();
  
         return new ResponseEntity<List<BeachEntity>>(list, new HttpHeaders(), HttpStatus.OK);

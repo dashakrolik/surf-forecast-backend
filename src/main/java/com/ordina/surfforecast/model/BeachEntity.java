@@ -59,6 +59,6 @@ public class BeachEntity {
     @Override
     public String toString() {
         return "BeachEntity [id=" + id + ", name=" + name +
-                ", location=" + latitude + "," + longitude + "]";
+                ", lat, lng=" + latitude + "," + longitude + "]";
     }
 }
