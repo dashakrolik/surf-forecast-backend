@@ -23,6 +23,9 @@ public class BeachEntity {
 
 	@Column(name="longitude")
 	private String longitude;
+
+	@Column(name="waveheight")
+	private String waveheight;
     
     public Long getId() {
 		return id;
@@ -34,6 +37,14 @@ public class BeachEntity {
 
 	public String getName() {
 		return name;
+	}
+
+	public String getWaveHeight() {
+		return waveheight;
+	}
+
+	public void setWaveHeight(String waveHeight) {
+		this.waveheight = waveHeight;
 	}
 
 	public void setName(String name) {
