@@ -1,6 +1,7 @@
 package com.ordina.surfforecast.service;
 
 import java.net.URISyntaxException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -65,7 +66,8 @@ public class BeachService {
             // Make the HTTP GET request to the Basic Auth protected URL
             String lat = beach.getLatitude();
             String lng = beach.getLongitude();
-            ResponseEntity<String> response = restTemplate.exchange("https://api.stormglass.io/v1/weather/point?params=waveHeight&source=dwd&start=2020-01-19&end=2020-01-19" + "&lat=" + lat + "&lng=" + lng, HttpMethod.GET, requestEntity, String.class);
+            LocalDate localDate = LocalDate.now();
+            ResponseEntity<String> response = restTemplate.exchange("https://api.stormglass.io/v1/weather/point?params=waveHeight&source=dwd" + "&start=" + localDate + "&end=" + localDate + "&lat=" + lat + "&lng=" + lng, HttpMethod.GET, requestEntity, String.class);
 
             System.out.println(response.getBody());
             return response.getBody();
