@@ -14,3 +14,7 @@ HTTP requests should be sent to localhost:8080.
 - GET: /beaches/{id} - find a beach by id.
 - POST: /beaches - add a new beach to the database.
 - DELETE /beaches/{id} - delete a beach from the database.
+
+## API connection
+
+The application is connected to the https://stormglass.io/ weather forecast API. For every beach in the database the application makes a request to the Sormglass API, with params longitute and latitude.
