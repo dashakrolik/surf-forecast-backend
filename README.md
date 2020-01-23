@@ -17,4 +17,4 @@ HTTP requests should be sent to localhost:8080.
 
 ## API connection
 
-The application is connected to the https://stormglass.io/ weather forecast API. For every beach in the database the application makes a request to the Sormglass API, with params longitute and latitude.
+The application is connected to the https://stormglass.io/ weather forecast API. For every beach in the database the application makes a request to the Sormglass API (with params longitute and latitude), returning waveHeight.
