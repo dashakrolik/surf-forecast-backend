@@ -1,5 +1,6 @@
 package com.ordina.surfforecast.service;
 
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -7,6 +8,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ordina.surfforecast.model.WaveHeightDTO;
 import com.ordina.surfforecast.repository.BeachRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +27,8 @@ import com.ordina.surfforecast.model.BeachEntity;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
+import javax.xml.transform.Result;
+
 @Service
 public class BeachService {
      
@@ -35,8 +42,10 @@ public class BeachService {
         if(beachesList.size() > 0) {
             List<BeachEntity> arrayToLoop = beachesList.stream().map(beach -> {
                 try {
-                    String result = getForecast(beach);
-                    beach.setWaveHeight(result);
+                    String response = getForecast(beach);
+//                    String value = result.hours[0].waveHeight[0].value;
+
+                    beach.setWaveHeight(response);
                     return beach;
                 } catch (URISyntaxException e) {
                     e.printStackTrace();
@@ -55,12 +64,12 @@ public class BeachService {
     public String getForecast(BeachEntity beach) throws URISyntaxException {
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.set("Authorization", "1f1a92e0-36d1-11ea-83df-0242ac130002-1f1a93f8-36d1-11ea-83df-0242ac130002");
+
         HttpEntity<?> requestEntity = new HttpEntity<Object>(requestHeaders);
 
         RestTemplate restTemplate = new RestTemplate();
 
         restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
-
 
         try {
             // Make the HTTP GET request to the Basic Auth protected URL
@@ -68,8 +77,8 @@ public class BeachService {
             String lng = beach.getLongitude();
             LocalDate localDate = LocalDate.now();
             ResponseEntity<String> response = restTemplate.exchange("https://api.stormglass.io/v1/weather/point?params=waveHeight&source=dwd" + "&start=" + localDate + "&end=" + localDate + "&lat=" + lat + "&lng=" + lng, HttpMethod.GET, requestEntity, String.class);
+//            System.out.println(response.getBody());
 
-            System.out.println(response.getBody());
             return response.getBody();
         } catch (HttpClientErrorException e) {
             return e.toString();
