@@ -44,7 +44,9 @@ public class BeachEntity {
 	}
 
 	public void setWaveHeight(String waveHeight) {
-		this.waveheight = waveHeight;
+    	WaveHeightDTO dto = new WaveHeightDTO();
+    	dto.setHours(waveHeight);
+		this.waveheight = dto.getHours();
 	}
 
 	public void setName(String name) {
