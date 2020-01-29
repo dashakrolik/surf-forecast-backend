@@ -68,10 +68,5 @@ public class BeachEntity {
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
-
-    @Override
-    public String toString() {
-        return "BeachEntity [id=" + id + ", name=" + name +
-                ", lat, lng=" + latitude + "," + longitude + "]";
-    }
+	
 }

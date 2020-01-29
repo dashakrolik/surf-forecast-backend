@@ -1,10 +1,5 @@
 package com.ordina.surfforecast.model;
-
-import java.time.LocalDateTime;
 import java.util.List;
-
-
-
 
 public class WaveHeightDTO {
     List<Hour> hours;

@@ -22,12 +22,4 @@ public class Hour {
         this.waveHeight = waveHeight;
 
     }
-
-    @Override
-    public String toString() {
-        return "Hour{" +
-                "time='" + time + '\'' +
-                ", waveHeight=" + waveHeight +
-                '}';
-    }
 }

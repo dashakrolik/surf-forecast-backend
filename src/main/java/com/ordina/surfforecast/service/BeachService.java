@@ -36,10 +36,8 @@ public class BeachService {
         if(beachesList.size() > 0) {
             List<BeachEntity> arrayToLoop = beachesList.stream().map(beach -> {
                 WaveHeightDTO response = getForecast(beach);
-//                    String value = result.hours[0].waveHeight[0].value;
-
-
                 beach.setWaveheightvalue(response.getHours().get(0).getWaveHeight().get(0).getValue());
+
                 return beach;
             }).collect(Collectors.toList());
 
@@ -69,18 +67,6 @@ public class BeachService {
             ResponseEntity<WaveHeightDTO> response = restTemplate.exchange("https://api.stormglass.io/v1/weather/point?params=waveHeight&source=dwd" + "&start=" + localDate + "&end=" + localDate + "&lat=" + lat + "&lng=" + lng, HttpMethod.GET, requestEntity, WaveHeightDTO.class);
 
             WaveHeightDTO body = response.getBody();
-
-            System.out.println(body.getHours().get(0));
-
-//            ObjectMapper mapper = new ObjectMapper();
-//            JsonNode root = mapper.readTree(response.getBody());
-//            JsonNode hours = root.path("hours");
-//            hours.fin
-
-            System.out.println("hoi");
-
-//            JsonNode name = root.path("name");
-
 
             return body;
         } catch (RestClientException e) {
