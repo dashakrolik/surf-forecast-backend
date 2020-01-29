@@ -1,6 +1,5 @@
 package com.ordina.surfforecast.service;
 
-import java.io.IOException;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,9 +7,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ordina.surfforecast.model.WaveHeightDTO;
 import com.ordina.surfforecast.repository.BeachRepository;
 
@@ -24,10 +20,8 @@ import org.springframework.stereotype.Service;
 
 import com.ordina.surfforecast.exception.RecordNotFoundException;
 import com.ordina.surfforecast.model.BeachEntity;
-import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-
-import javax.xml.transform.Result;
 
 @Service
 public class BeachService {
@@ -41,16 +35,12 @@ public class BeachService {
 
         if(beachesList.size() > 0) {
             List<BeachEntity> arrayToLoop = beachesList.stream().map(beach -> {
-                try {
-                    String response = getForecast(beach);
+                WaveHeightDTO response = getForecast(beach);
 //                    String value = result.hours[0].waveHeight[0].value;
 
-                    beach.setWaveHeight(response);
-                    return beach;
-                } catch (URISyntaxException e) {
-                    e.printStackTrace();
-                }
-                return null;
+
+                beach.setWaveheightvalue(response.getHours().get(0).getWaveHeight().get(0).getValue());
+                return beach;
             }).collect(Collectors.toList());
 
            return arrayToLoop;
@@ -61,7 +51,7 @@ public class BeachService {
     }
 
 
-    public String getForecast(BeachEntity beach) throws URISyntaxException {
+    public WaveHeightDTO getForecast(BeachEntity beach) throws RestClientException {
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.set("Authorization", "1f1a92e0-36d1-11ea-83df-0242ac130002-1f1a93f8-36d1-11ea-83df-0242ac130002");
 
@@ -76,14 +66,26 @@ public class BeachService {
             String lat = beach.getLatitude();
             String lng = beach.getLongitude();
             LocalDate localDate = LocalDate.now();
-            ResponseEntity<String> response = restTemplate.exchange("https://api.stormglass.io/v1/weather/point?params=waveHeight&source=dwd" + "&start=" + localDate + "&end=" + localDate + "&lat=" + lat + "&lng=" + lng, HttpMethod.GET, requestEntity, String.class);
-//            System.out.println(response.getBody());
+            ResponseEntity<WaveHeightDTO> response = restTemplate.exchange("https://api.stormglass.io/v1/weather/point?params=waveHeight&source=dwd" + "&start=" + localDate + "&end=" + localDate + "&lat=" + lat + "&lng=" + lng, HttpMethod.GET, requestEntity, WaveHeightDTO.class);
 
-            return response.getBody();
-        } catch (HttpClientErrorException e) {
-            return e.toString();
-            // Handle 401 Unauthorized response
-        }
+            WaveHeightDTO body = response.getBody();
+
+            System.out.println(body.getHours().get(0));
+
+//            ObjectMapper mapper = new ObjectMapper();
+//            JsonNode root = mapper.readTree(response.getBody());
+//            JsonNode hours = root.path("hours");
+//            hours.fin
+
+            System.out.println("hoi");
+
+//            JsonNode name = root.path("name");
+
+
+            return body;
+        } catch (RestClientException e) {
+           e.printStackTrace();
+        } return null;
     }
 
     public BeachEntity getBeachById(Long id) throws RecordNotFoundException
@@ -97,7 +99,7 @@ public class BeachService {
         }
     }
      
-    public BeachEntity createOrUpdateBeach(BeachEntity entity) throws RecordNotFoundException
+    public BeachEntity createOrUpdateBeach(BeachEntity entity)
     {
         Optional<BeachEntity> beach = repository.findById(entity.getId());
 
@@ -107,7 +109,7 @@ public class BeachService {
             newEntity.setName(entity.getName());
             newEntity.setLatitude(entity.getLatitude());
             newEntity.setLongitude(entity.getLongitude());
-            newEntity.setWaveHeight(entity.getWaveHeight());
+            newEntity.setWaveheightvalue(entity.getWaveheightvalue());
 
             newEntity = repository.save(newEntity);
 

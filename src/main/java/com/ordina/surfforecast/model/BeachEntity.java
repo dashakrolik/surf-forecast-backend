@@ -1,5 +1,7 @@
 package com.ordina.surfforecast.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +27,7 @@ public class BeachEntity {
 	private String longitude;
 
 	@Column(name="waveheight")
-	private String waveheight;
+	private double waveheightvalue;
     
     public Long getId() {
 		return id;
@@ -39,14 +41,12 @@ public class BeachEntity {
 		return name;
 	}
 
-	public String getWaveHeight() {
-		return waveheight;
+	public double getWaveheightvalue() {
+		return waveheightvalue;
 	}
 
-	public void setWaveHeight(String waveHeight) {
-    	WaveHeightDTO dto = new WaveHeightDTO();
-    	dto.setHours(waveHeight);
-		this.waveheight = dto.getHours();
+	public void setWaveheightvalue(double waveheightvalue) {
+		this.waveheightvalue = waveheightvalue;
 	}
 
 	public void setName(String name) {
