@@ -1,7 +1,9 @@
 com/ordina/surfforecast/repository/BeachRepository.class
 com/ordina/surfforecast/web/BeachController.class
-com/ordina/surfforecast/model/WaveHeightDTO.class
+com/ordina/surfforecast/model/Hour.class
 com/ordina/surfforecast/service/BeachService.class
+com/ordina/surfforecast/model/WaveHeight.class
+com/ordina/surfforecast/model/WaveHeightDTO.class
 com/ordina/surfforecast/model/BeachEntity.class
 com/ordina/surfforecast/DemoApplication.class
 com/ordina/surfforecast/exception/RecordNotFoundException.class
