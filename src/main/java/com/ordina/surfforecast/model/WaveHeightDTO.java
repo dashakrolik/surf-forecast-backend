@@ -1,14 +1,14 @@
 package com.ordina.surfforecast.model;
+import java.util.List;
 
 public class WaveHeightDTO {
-    String hours;
+    List<Hour> hours;
 
-    public void setHours(String hours) {
-        this.hours = hours;
-    }
-
-    public String getHours() {
+    public List<Hour> getHours() {
         return hours;
     }
 
+    public void setHours(List<Hour> hours) {
+        this.hours = hours;
+    }
 }
