@@ -2,6 +2,10 @@
 
 The backend for the application providing an overview of Beach Breaks in Portugal and the weather forecast for them.
 
+## Deployment
+
+The application is deployed on https://calm-badlands-88021.herokuapp.com/
+
 ## To run the application
 
 Cd into the top folder of the app and run `mvn spring-boot:run`.
@@ -18,3 +22,5 @@ HTTP requests should be sent to localhost:8080.
 ## API connection
 
 The application is connected to the https://stormglass.io/ weather forecast API. For every beach in the database the application makes a request to the Sormglass API (with params longitute and latitude), returning waveHeight.
+
+
