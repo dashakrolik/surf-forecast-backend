@@ -1,7 +1,10 @@
+/Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/model/SwellPeriod.java
+/Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/model/Hour.java
 /Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/exception/RecordNotFoundException.java
 /Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/web/BeachController.java
 /Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/repository/BeachRepository.java
 /Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/model/WaveHeightDTO.java
+/Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/model/WaveHeight.java
 /Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/model/BeachEntity.java
 /Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/service/BeachService.java
 /Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/DemoApplication.java

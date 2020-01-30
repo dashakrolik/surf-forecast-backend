@@ -36,7 +36,11 @@ public class BeachService {
         if(beachesList.size() > 0) {
             List<BeachEntity> arrayToLoop = beachesList.stream().map(beach -> {
                 WaveHeightDTO response = getForecast(beach);
+
                 beach.setWaveheightvalue(response.getHours().get(0).getWaveHeight().get(0).getValue());
+                beach.setSwellperiodvalue(response.getHours().get(0).getSwellPeriod().get(0).getValue());
+                beach.setWindspeedvalue(response.getHours().get(0).getWindSpeed().get(0).getValue());
+                beach.setWinddirectionvalue(response.getHours().get(0).getWindDirection().get(0).getValue());
 
                 return beach;
             }).collect(Collectors.toList());
@@ -64,7 +68,7 @@ public class BeachService {
             String lat = beach.getLatitude();
             String lng = beach.getLongitude();
             LocalDate localDate = LocalDate.now();
-            ResponseEntity<WaveHeightDTO> response = restTemplate.exchange("https://api.stormglass.io/v1/weather/point?params=waveHeight&source=dwd" + "&start=" + localDate + "&end=" + localDate + "&lat=" + lat + "&lng=" + lng, HttpMethod.GET, requestEntity, WaveHeightDTO.class);
+            ResponseEntity<WaveHeightDTO> response = restTemplate.exchange("https://api.stormglass.io/v1/weather/point?params=waveHeight,swellPeriod,windDirection,windSpeed&source=dwd" + "&start=" + localDate + "&end=" + localDate + "&lat=" + lat + "&lng=" + lng, HttpMethod.GET, requestEntity, WaveHeightDTO.class);
 
             WaveHeightDTO body = response.getBody();
 
@@ -96,6 +100,9 @@ public class BeachService {
             newEntity.setLatitude(entity.getLatitude());
             newEntity.setLongitude(entity.getLongitude());
             newEntity.setWaveheightvalue(entity.getWaveheightvalue());
+            newEntity.setSwellperiodvalue(entity.getSwellperiodvalue());
+            newEntity.setWindspeedvalue(entity.getWindspeedvalue());
+            newEntity.setWinddirectionvalue(entity.getWinddirectionvalue());
 
             newEntity = repository.save(newEntity);
 
