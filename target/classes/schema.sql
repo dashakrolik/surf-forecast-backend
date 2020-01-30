@@ -5,5 +5,8 @@ CREATE TABLE TBL_BEACHES (
   name VARCHAR(250) NOT NULL,
   latitude VARCHAR(250) NOT NULL,
   longitude VARCHAR(250) NOT NULL,
-  waveheight VARCHAR(250) NOT NULL
+  waveheight VARCHAR(250) NOT NULL,
+  swellperiod VARCHAR(250) NOT NULL,
+  windspeed VARCHAR(250) NOT NULL,
+  winddirection VARCHAR(250) NOT NULL,
 );
