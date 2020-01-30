@@ -28,8 +28,41 @@ public class BeachEntity {
 
 	@Column(name="waveheight")
 	private double waveheightvalue;
-    
-    public Long getId() {
+
+	@Column(name="swellperiod")
+	private double swellperiodvalue;
+
+	@Column(name="winddirection")
+	private double winddirectionvalue;
+
+	@Column(name="windspeed")
+	private double windspeedvalue;
+
+	public double getWinddirectionvalue() {
+		return winddirectionvalue;
+	}
+
+	public void setWinddirectionvalue(double winddirectionvalue) {
+		this.winddirectionvalue = winddirectionvalue;
+	}
+
+	public double getWindspeedvalue() {
+		return windspeedvalue;
+	}
+
+	public void setWindspeedvalue(double windspeedvalue) {
+		this.windspeedvalue = windspeedvalue;
+	}
+
+	public double getSwellperiodvalue() {
+		return swellperiodvalue;
+	}
+
+	public void setSwellperiodvalue(double swellperiodvalue) {
+		this.swellperiodvalue = swellperiodvalue;
+	}
+
+	public Long getId() {
 		return id;
 	}
 
