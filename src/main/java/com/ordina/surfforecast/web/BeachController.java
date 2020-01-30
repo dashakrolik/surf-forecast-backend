@@ -15,14 +15,14 @@ import com.ordina.surfforecast.model.BeachEntity;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://stormy-mountain-63142.herokuapp.com")
 @RequestMapping("/beaches")
 public class BeachController
 {
     @Autowired
     BeachService service;
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://stormy-mountain-63142.herokuapp.com")
     @GetMapping
     public ResponseEntity<List<BeachEntity>> getAllBeaches() throws URISyntaxException {
         List<BeachEntity> list = service.getAllBeaches();
@@ -30,7 +30,7 @@ public class BeachController
         return new ResponseEntity<List<BeachEntity>>(list, new HttpHeaders(), HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://stormy-mountain-63142.herokuapp.com")
     @GetMapping("/{id}")
     public ResponseEntity<BeachEntity> getBeachById(@PathVariable("id") Long id)
                                                     throws RecordNotFoundException {
@@ -39,7 +39,7 @@ public class BeachController
         return new ResponseEntity<BeachEntity>(entity, new HttpHeaders(), HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://stormy-mountain-63142.herokuapp.com")
     @PostMapping
     public ResponseEntity<BeachEntity> createOrUpdateBeach(@RequestBody BeachEntity beach)
                                                     throws RecordNotFoundException {
@@ -48,7 +48,7 @@ public class BeachController
         return new ResponseEntity<BeachEntity>(updated, new HttpHeaders(), HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://stormy-mountain-63142.herokuapp.com")
     @DeleteMapping("/{id}")
     public HttpStatus deleteBeachById(@PathVariable("id") Long id)
                                                     throws RecordNotFoundException {
