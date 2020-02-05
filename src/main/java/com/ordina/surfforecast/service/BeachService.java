@@ -48,7 +48,7 @@ public class BeachService {
            return arrayToLoop;
 
     } else {
-            
+
          return new ArrayList<>();
       }
     }
