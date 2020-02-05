@@ -36,10 +36,10 @@ public class BeachService {
         if(beachesList.size() > 0) {
             List<BeachEntity> arrayToLoop = beachesList.stream().map(beach -> {
                 WaveHeightDTO response = getForecast(beach);
-
-                if (response.getHours().isEmpty()) {
-                    System.out.println("RESPONSE IS EMPTY !!!!!!!!!!!!!!!!!!!");
-                }
+//
+//                if (response.getHours().isEmpty()) {
+//                    System.out.println("RESPONSE IS EMPTY !!!!!!!!!!!!!!!!!!!");
+//                }
                 beach.setWaveheightvalue(response.getHours().get(0).getWaveHeight().get(0).getValue());
                 beach.setSwellperiodvalue(response.getHours().get(0).getSwellPeriod().get(0).getValue());
                 beach.setWindspeedvalue(response.getHours().get(0).getWindSpeed().get(0).getValue());
