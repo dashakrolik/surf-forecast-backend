@@ -33,7 +33,7 @@ public class BeachService {
 
         List<BeachEntity> beachesList = repository.findAll();
 
-        if(beachesList.size() > 0) {
+//        if(beachesList.size() > 0) {
             List<BeachEntity> arrayToLoop = beachesList.stream().map(beach -> {
                 WaveHeightDTO response = getForecast(beach);
 
@@ -47,16 +47,16 @@ public class BeachService {
 
            return arrayToLoop;
 
-    } else {
-
-         return new ArrayList<>();
-      }
+//    } else {
+//
+//         return new ArrayList<>();
+//      }
     }
 
 
     public WaveHeightDTO getForecast(BeachEntity beach) throws RestClientException {
         HttpHeaders requestHeaders = new HttpHeaders();
-        
+
         requestHeaders.set("Authorization", "1f1a92e0-36d1-11ea-83df-0242ac130002-1f1a93f8-36d1-11ea-83df-0242ac130002");
 
         HttpEntity<?> requestEntity = new HttpEntity<Object>(requestHeaders);
