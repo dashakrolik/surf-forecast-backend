@@ -56,6 +56,7 @@ public class BeachService {
 
     public WaveHeightDTO getForecast(BeachEntity beach) throws RestClientException {
         HttpHeaders requestHeaders = new HttpHeaders();
+        
         requestHeaders.set("Authorization", "1f1a92e0-36d1-11ea-83df-0242ac130002-1f1a93f8-36d1-11ea-83df-0242ac130002");
 
         HttpEntity<?> requestEntity = new HttpEntity<Object>(requestHeaders);
