@@ -33,7 +33,7 @@ public class BeachService {
 
         List<BeachEntity> beachesList = repository.findAll();
 
-//        if(beachesList.size() > 0) {
+        if(beachesList.size() > 0) {
             List<BeachEntity> arrayToLoop = beachesList.stream().map(beach -> {
                 WaveHeightDTO response = getForecast(beach);
 
@@ -47,10 +47,10 @@ public class BeachService {
 
            return arrayToLoop;
 
-//    } else {
-//
-//         return new ArrayList<>();
-//      }
+    } else {
+
+         return new ArrayList<>();
+      }
     }
 
 
