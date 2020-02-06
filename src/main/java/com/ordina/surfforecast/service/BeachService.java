@@ -40,6 +40,7 @@ public class BeachService {
 //                if (response.getHours().isEmpty()) {
 //                    System.out.println("RESPONSE IS EMPTY !!!!!!!!!!!!!!!!!!!");
 //                }
+                
                 beach.setWaveheightvalue(response.getHours().get(0).getWaveHeight().get(0).getValue());
                 beach.setSwellperiodvalue(response.getHours().get(0).getSwellPeriod().get(0).getValue());
                 beach.setWindspeedvalue(response.getHours().get(0).getWindSpeed().get(0).getValue());
@@ -47,7 +48,7 @@ public class BeachService {
 
                 return beach;
             }).collect(Collectors.toList());
-
+            System.out.println(arrayToLoop);
            return arrayToLoop;
 
     } else {
