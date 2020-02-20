@@ -116,13 +116,9 @@ public class BeachService {
      
     public void deleteBeachById(Long id) throws RecordNotFoundException
     {
-        Optional<BeachEntity> beach = repository.findById(id);
-         
-        if(beach.isPresent())
-        {
-            repository.deleteById(id);
-        } else {
+        if(!(repository.findById(id).isPresent())) {
             throw new RecordNotFoundException("No beach record exist for given id");
         }
+        repository.deleteById(id);
     }
 }
