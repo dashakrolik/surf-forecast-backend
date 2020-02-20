@@ -33,14 +33,9 @@ public class BeachService {
 
         List<BeachEntity> beachesList = repository.findAll();
 
-
         if(beachesList.size() > 0) {
             List<BeachEntity> arrayToLoop = beachesList.stream().map(beach -> {
                 WaveHeightDTO response = getForecast(beach);
-//
-//                if (response.getHours().isEmpty()) {
-//                    System.out.println("RESPONSE IS EMPTY !!!!!!!!!!!!!!!!!!!");
-//                }
 
                 beach.setWaveheightvalue(response.getHours().get(0).getWaveHeight().get(0).getValue());
                 beach.setSwellperiodvalue(response.getHours().get(0).getSwellPeriod().get(0).getValue());
@@ -49,11 +44,10 @@ public class BeachService {
 
                 return beach;
             }).collect(Collectors.toList());
-            System.out.println(arrayToLoop);
+
            return arrayToLoop;
 
     } else {
-
          return new ArrayList<>();
       }
     }
@@ -61,7 +55,6 @@ public class BeachService {
 
     public WaveHeightDTO getForecast(BeachEntity beach) throws RestClientException {
         HttpHeaders requestHeaders = new HttpHeaders();
-
         requestHeaders.set("Authorization", "1f1a92e0-36d1-11ea-83df-0242ac130002-1f1a93f8-36d1-11ea-83df-0242ac130002");
 
         HttpEntity<?> requestEntity = new HttpEntity<Object>(requestHeaders);
@@ -123,13 +116,9 @@ public class BeachService {
      
     public void deleteBeachById(Long id) throws RecordNotFoundException
     {
-        Optional<BeachEntity> beach = repository.findById(id);
-         
-        if(beach.isPresent())
-        {
-            repository.deleteById(id);
-        } else {
+        if(!(repository.findById(id).isPresent())) {
             throw new RecordNotFoundException("No beach record exist for given id");
         }
+        repository.deleteById(id);
     }
 }
