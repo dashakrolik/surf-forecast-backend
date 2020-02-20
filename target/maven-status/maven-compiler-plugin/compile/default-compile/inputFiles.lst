@@ -6,5 +6,7 @@
 /Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/model/WaveHeightDTO.java
 /Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/model/WaveHeight.java
 /Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/model/BeachEntity.java
+/Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/model/WindSpeed.java
+/Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/model/WindDirection.java
 /Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/service/BeachService.java
 /Users/dep23810/Ordina/surf-forecast-backend/src/main/java/com/ordina/surfforecast/DemoApplication.java
