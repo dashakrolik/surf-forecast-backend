@@ -68,7 +68,8 @@ public class BeachService {
             String lat = beach.getLatitude();
             String lng = beach.getLongitude();
             LocalDate localDate = LocalDate.now();
-            ResponseEntity<WaveHeightDTO> response = restTemplate.exchange("https://api.stormglass.io/v1/weather/point?params=waveHeight,swellPeriod,windDirection,windSpeed&source=dwd" + "&start=" + localDate + "&end=" + localDate + "&lat=" + lat + "&lng=" + lng, HttpMethod.GET, requestEntity, WaveHeightDTO.class);
+            String params =  "waveHeight,swellPeriod,windDirection,windSpeed&source=dwd";
+            ResponseEntity<WaveHeightDTO> response = restTemplate.exchange("https://api.stormglass.io/v1/weather/point?params=" + params + "&start=" + localDate + "&end=" + localDate + "&lat=" + lat + "&lng=" + lng, HttpMethod.GET, requestEntity, WaveHeightDTO.class);
 
             WaveHeightDTO body = response.getBody();
 
