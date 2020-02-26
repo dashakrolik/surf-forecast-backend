@@ -17,6 +17,7 @@ HTTP requests should be sent to localhost:8080.
 - GET: /beaches - overview of all the beaches in the database.
 - GET: /beaches/{id} - find a beach by id.
 - POST: /beaches - add a new beach to the database.
+- PUT: /beaches/{id} - adjust beach data.
 - DELETE /beaches/{id} - delete a beach from the database.
 
 ## API connection
