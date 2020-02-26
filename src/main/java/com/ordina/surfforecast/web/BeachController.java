@@ -51,7 +51,6 @@ public class BeachController
     @CrossOrigin(origins = {"https://surf-forecast.herokuapp.com", "http://localhost:3000"})
     @PutMapping("/{id}")
     public ResponseEntity<BeachEntity> updateBeach(@RequestBody BeachEntity beach) {
-        System.out.println(beach);
         BeachEntity updated = service.createOrUpdateBeach(beach);
         return new ResponseEntity<BeachEntity>(updated, new HttpHeaders(), HttpStatus.OK);
     }
